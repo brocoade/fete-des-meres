@@ -1,91 +1,184 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bonne fête maman ❤️</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;700&display=swap');
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: url('C:\Users\ADE\Documents\projet\vue-de-dessus-du-coeur-fait-de-fleurs-epanouies.JPG') no-repeat center center fixed;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
-      text-align: center;
       overflow: hidden;
     }
+
     #overlay {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.7);
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       z-index: 10;
+      animation: fadeIn 2s ease-in-out;
     }
+
+    #overlay h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      animation: pulse 2s infinite;
+    }
+
     #overlay button {
-      padding: 1rem 2rem;
+      padding: 1rem 2.5rem;
       font-size: 1.2rem;
-      background: #ff69b4;
+      background: #e91e63;
       border: none;
-      border-radius: 10px;
+      border-radius: 50px;
       cursor: pointer;
       color: white;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
     }
+
+    #overlay button:hover {
+      transform: scale(1.1);
+    }
+
     #message {
       display: none;
-      padding: 3rem 1rem;
+      padding: 5vh 2rem;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
     }
+
     h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      color: #ffebee;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 5px #000;
     }
+
     p {
       font-size: 1.5rem;
       max-width: 800px;
-      margin: auto;
+      margin: 0 auto;
+      line-height: 1.8;
+      text-shadow: 1px 1px 2px #000;
     }
+
     .yt-button {
-      margin-top: 2rem;
+      margin-top: 3rem;
       display: inline-block;
-      padding: 1rem 2rem;
-      background-color: #ff69b4;
+      padding: 1rem 2.5rem;
+      background-color: #d81b60;
       color: white;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      border-radius: 50px;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+    }
+
+    .yt-button:hover {
+      background-color: #ad1457;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -50px;
+      width: 20px;
+      height: 20px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/4/49/Red_heart_icon.svg');
+      background-size: cover;
+      animation: floatHearts 8s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatHearts {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
 
+<!-- OVERLAY -->
 <div id="overlay">
   <h2>🎁 Clique ici pour découvrir ton message, maman 💝</h2>
   <button onclick="showMessage()">Voir le message</button>
 </div>
 
+<!-- MESSAGE -->
 <div id="message">
   <h1>Bonne fête des mères 🌹❤️</h1>
   <p>
-    Merci pour ton amour inconditionnel ❤️, ta force 💪, ton soutien 🤗 et tous les sacrifices que tu fais pour moi chaque jour.<br>
-    Je suis fier d'être ton enfant 👶👩‍👧. Que cette journée t’apporte autant de bonheur que celui que tu me donnes chaque jour 🌸💝.<br>
-    Je t’aime profondément 💕🌺
+    Merci pour ton amour inestimable ❤️, ta force incroyable 💪 et ton cœur si grand 🤗.<br>
+    Chaque jour, tu fais de moi une meilleure personne avec ton amour, ton courage et ta douceur infinie.<br>
+    Que cette journée t’enveloppe de bonheur et de reconnaissance 🌸💝.<br>
+    Je t’aime plus que tout 💕🌺
   </p>
- <a href="https://www.youtube.com/watch?v=VtEo5pW8b-I" target="_blank" class="yt-button">
-  🎵 Écouter "Maman Dagbé" de Miss Espoir
-</a>
+  <a href="https://www.youtube.com/watch?v=VtEo5pW8b-I" target="_blank" class="yt-button">
+    🎵 Écouter "Maman Dagbé" de Miss Espoir
+  </a>
 </div>
 
+<!-- AUDIO -->
+<audio id="player" preload="auto">
+  <source src="https://raw.githubusercontent.com/brocoade/fete-des-meres/main/maman_dagbe.mp3" type="audio/mpeg">
+  Ton navigateur ne supporte pas l'audio HTML5.
+</audio>
+
+<!-- SCRIPTS -->
 <script>
   function showMessage() {
     document.getElementById("overlay").style.display = "none";
     document.getElementById("message").style.display = "block";
+
+    const audio = document.getElementById("player");
+    audio.play().catch(err => {
+      console.log("Lecture audio bloquée :", err);
+    });
   }
+
+  // Floating hearts
+  setInterval(() => {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = (4 + Math.random() * 4) + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 8000);
+  }, 400);
 </script>
 
 </body>
