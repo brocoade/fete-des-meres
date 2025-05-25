@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bonne fête maman ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+    #overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 10;
+    }
+    #overlay button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background: #ff69b4;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    #message {
+      display: none;
+      padding: 3rem 1rem;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    iframe {
+      margin-top: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+<div id="overlay">
+  <h2>🎁 Clique ici pour découvrir ton message, maman 💝</h2>
+  <button onclick="showMessage()">Voir le message</button>
+</div>
+
+<div id="message">
+  <h1>Bonne fête des mères 🌹❤️</h1>
+  <p>
+    Merci pour ton amour inconditionnel ❤️, ta force 💪, ton soutien 🤗 et tous les sacrifices que tu fais pour moi chaque jour.<br>
+    Je suis fier d'être ton enfant 👶👩‍👧. Que cette journée t’apporte autant de bonheur que celui que tu me donnes chaque jour 🌸💝.<br>
+    Je t’aime profondément 💕🌺
+  </p>
+  <iframe width="320" height="180" src="https://youtu.be/VtEo5pW8b-I?si=1LHepfvIjU_vOjYx" 
+    title="Miss Espoir - Maman" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+  </iframe>
+</div>
+
+<script>
+  function showMessage() {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("message").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
