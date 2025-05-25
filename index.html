@@ -7,96 +7,95 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;700&display=swap');
 
-    body {
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Open Sans', sans-serif;
-      background: url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background: url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=800&q=80') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
-      overflow: hidden;
+      text-align: center;
+      height: 100vh;
     }
 
     #overlay {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.75);
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      padding: 20px;
       z-index: 10;
       animation: fadeIn 2s ease-in-out;
     }
 
     #overlay h2 {
       font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
+      font-size: 2.2rem;
       margin-bottom: 1.5rem;
       animation: pulse 2s infinite;
     }
 
     #overlay button {
-      padding: 1rem 2.5rem;
-      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      font-size: 1rem;
       background: #e91e63;
       border: none;
       border-radius: 50px;
-      cursor: pointer;
       color: white;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      cursor: pointer;
       transition: transform 0.3s ease;
     }
 
     #overlay button:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
 
     #message {
       display: none;
-      padding: 5vh 2rem;
-      text-align: center;
+      padding: 5vh 1rem;
       animation: fadeIn 2s ease-in-out;
     }
 
     h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 4rem;
+      font-size: 2.5rem;
       color: #ffebee;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       text-shadow: 2px 2px 5px #000;
     }
 
     p {
-      font-size: 1.5rem;
-      max-width: 800px;
+      font-size: 1.2rem;
+      max-width: 90%;
       margin: 0 auto;
-      line-height: 1.8;
-      text-shadow: 1px 1px 2px #000;
+      line-height: 1.6;
+      text-shadow: 1px 1px 3px #000;
     }
 
     .yt-button {
-      margin-top: 3rem;
-      display: inline-block;
-      padding: 1rem 2.5rem;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
       background-color: #d81b60;
       color: white;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 50px;
-      font-size: 1.2rem;
+      border-radius: 40px;
+      font-size: 1rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      transition: all 0.3s ease;
-    }
-
-    .yt-button:hover {
-      background-color: #ad1457;
-      transform: scale(1.05);
+      display: inline-block;
     }
 
     @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(10px); }
+      0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
 
@@ -106,10 +105,9 @@
       100% { transform: scale(1); }
     }
 
-    /* Floating hearts */
     .heart {
       position: fixed;
-      bottom: -50px;
+      bottom: -40px;
       width: 20px;
       height: 20px;
       background: url('https://upload.wikimedia.org/wikipedia/commons/4/49/Red_heart_icon.svg');
@@ -132,13 +130,11 @@
 </head>
 <body>
 
-<!-- OVERLAY -->
 <div id="overlay">
   <h2>🎁 Clique ici pour découvrir ton message, maman 💝</h2>
   <button onclick="showMessage()">Voir le message</button>
 </div>
 
-<!-- MESSAGE -->
 <div id="message">
   <h1>Bonne fête des mères 🌹❤️</h1>
   <p>
@@ -147,30 +143,25 @@
     Que cette journée t’enveloppe de bonheur et de reconnaissance 🌸💝.<br>
     Je t’aime plus que tout 💕🌺
   </p>
-  <a href="https://www.youtube.com/watch?v=VtEo5pW8b-I" target="_blank" class="yt-button">
-    🎵 Écouter "Maman Dagbé" de Miss Espoir
-  </a>
+
+  <audio id="audio" autoplay>
+    <source src="https://brocoade.github.io/fete-des-meres/maman-dagbe.mp3" type="audio/mpeg">
+    Ton navigateur ne supporte pas l'audio.
+  </audio>
+
 </div>
 
-<!-- AUDIO -->
-<audio id="player" preload="auto">
-  <source src="https://raw.githubusercontent.com/brocoade/fete-des-meres/main/maman_dagbe.mp3" type="audio/mpeg">
-  Ton navigateur ne supporte pas l'audio HTML5.
-</audio>
-
-<!-- SCRIPTS -->
 <script>
   function showMessage() {
     document.getElementById("overlay").style.display = "none";
     document.getElementById("message").style.display = "block";
 
-    const audio = document.getElementById("player");
-    audio.play().catch(err => {
-      console.log("Lecture audio bloquée :", err);
+    const audio = document.getElementById("audio");
+    audio.play().catch((e) => {
+      console.log("Lecture automatique bloquée : ", e);
     });
   }
 
-  // Floating hearts
   setInterval(() => {
     const heart = document.createElement('div');
     heart.classList.add('heart');
