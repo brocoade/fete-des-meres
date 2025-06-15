@@ -1,154 +1,116 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bonne fête maman ❤️</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bonne fête papa ❤️</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;700&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap');
 
     body {
-      font-family: 'Open Sans', sans-serif;
-      background: url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=800&q=80') no-repeat center center fixed;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: url('https://images.unsplash.com/photo-1498575207490-62d4c25df167?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       text-align: center;
-      height: 100vh;
+      overflow: hidden;
     }
-
     #overlay {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.85);
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      padding: 20px;
       z-index: 10;
-      animation: fadeIn 2s ease-in-out;
     }
-
-    #overlay h2 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.2rem;
-      margin-bottom: 1.5rem;
-      animation: pulse 2s infinite;
-    }
-
     #overlay button {
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      background: #e91e63;
+      padding: 1rem 2.5rem;
+      font-size: 1.3rem;
+      background: #2196F3;
       border: none;
       border-radius: 50px;
-      color: white;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
       cursor: pointer;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
       transition: transform 0.3s ease;
     }
-
     #overlay button:hover {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
-
     #message {
       display: none;
-      padding: 5vh 1rem;
-      animation: fadeIn 2s ease-in-out;
+      padding: 3rem 1rem;
+      animation: fadeIn 1.5s ease-in-out;
     }
-
     h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 2.5rem;
-      color: #ffebee;
+      font-size: 3.5rem;
       margin-bottom: 1rem;
+      color: #FFD700;
       text-shadow: 2px 2px 5px #000;
     }
-
     p {
-      font-size: 1.2rem;
-      max-width: 90%;
-      margin: 0 auto;
-      line-height: 1.6;
-      text-shadow: 1px 1px 3px #000;
+      font-size: 1.4rem;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.8;
+      text-shadow: 1px 1px 2px #000;
     }
-
-    .yt-button {
+    audio {
       margin-top: 2rem;
-      padding: 1rem 2rem;
-      background-color: #d81b60;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 40px;
-      font-size: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      display: inline-block;
     }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
     .heart {
       position: fixed;
-      bottom: -40px;
-      width: 20px;
-      height: 20px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/4/49/Red_heart_icon.svg');
-      background-size: cover;
-      animation: floatHearts 8s linear infinite;
-      opacity: 0.8;
+      top: -30px;
+      width: 30px;
+      height: 30px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
+      background-size: contain;
+      animation: floatHeart linear infinite;
+      z-index: 5;
     }
-
-    @keyframes floatHearts {
+    @keyframes floatHeart {
       0% {
         transform: translateY(0) scale(1);
-        opacity: 0.8;
+        opacity: 1;
       }
       100% {
-        transform: translateY(-110vh) scale(1.5);
+        transform: translateY(100vh) scale(1.5);
         opacity: 0;
       }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
 <div id="overlay">
-  <h2>🎁 Clique ici pour découvrir ton message, maman 💝</h2>
+  <h2>🎁 Clique ici pour découvrir ton message, papa 💙</h2>
   <button onclick="showMessage()">Voir le message</button>
 </div>
 
 <div id="message">
-  <h1>Bonne fête des mères 🌹❤️</h1>
+  <h1>Bonne fête des pères 👨‍👧‍👦💙</h1>
   <p>
-    Merci pour ton amour inestimable ❤️, ta force incroyable 💪 et ton cœur si grand 🤗.<br>
-    Chaque jour, tu fais de moi une meilleure personne avec ton amour, ton courage et ta douceur infinie.<br>
-    Que cette journée t’enveloppe de bonheur et de reconnaissance 🌸💝.<br>
-    Je t’aime plus que tout 💕🌺
+    Papa, tu es mon modèle, mon héros, mon roc 💪. <br>
+    Merci pour ta force, ton courage et ton amour silencieux mais immense ❤️. <br>
+    Tu m’as appris à être fort(e), à croire en moi, à ne jamais abandonner 💼🚀.<br>
+    Je te suis infiniment reconnaissant(e) pour chaque conseil, chaque sacrifice, chaque sourire caché derrière ta fatigue 😌.<br>
+    En ce jour spécial, je veux que tu saches combien tu comptes pour moi 🙏💙.<br>
+    Je t’aime plus que les mots ne peuvent le dire 💖👨‍👧‍👦
   </p>
-
   <audio id="audio" autoplay>
     <source src="https://brocoade.github.io/fete-des-meres/maman-dagbe.mp3" type="audio/mpeg">
     Ton navigateur ne supporte pas l'audio.
   </audio>
-
 </div>
 
 <script>
